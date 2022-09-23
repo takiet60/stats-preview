@@ -1,0 +1,138 @@
+@use './root'as *;
+@use './typography'as *;
+@use './layouts'as*;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Inter',
+        sans-serif;
+
+    font-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #{hsl(var(--clr-very-dark-blue))};
+    color: #{hsl(var(--clr-white))};
+    font-size: 0.9375rem;
+}
+
+.violet {
+    color: #{hsl(var(--clr-soft-violet))};
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #{hsl(var(--clr-dark-desaturated-blue))};
+    width: min(90%, 250px);
+    border-radius: 10px;
+    overflow: hidden;
+
+    &__header {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background-image: url(../assets/images/image-header-mobile.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        &-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: #{hsl((var(--clr-soft-violet) / 0.4))};
+        }
+    }
+
+    &__body {
+        padding: 1rem;
+        text-align: center;
+
+        >* {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        margin-top: 1rem;
+    }
+
+    &__des {
+        color: #{hsl(var(--clr-white) / .75)};
+        font-size: 0.75rem;
+        line-height: 1.5;
+        font-family: 'Lexend Deca',
+            sans-serif;
+    }
+
+    &__stats {
+        color: #{hsl(var(--clr-white) / 0.6)};
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    &__stat {
+        color: #{hsl(var(--clr-white))};
+        font-size: 0.935rem;
+        font-weight: 700;
+    }
+
+    &__stats-container {
+        margin-top: 1rem;
+    }
+}
+
+@include mq {
+    .card {
+        display: flex;
+        width: min(90%, 800px);
+        aspect-ratio: 5/2;
+        flex-direction: row-reverse;
+
+        &__header {
+            background-image: url(../assets/images/image-header-desktop.jpg);
+            flex-grow: 1;
+        }
+
+        &__body {
+            text-align: left;
+            padding: 2rem 3rem;
+        }
+
+        &__stats {
+            padding: 0;
+        }
+    }
+
+    .card__stats-container {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        margin-top: 3rem;
+    }
+
+
+}

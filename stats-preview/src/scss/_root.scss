@@ -1,0 +1,8 @@
+@use './colors'as *;
+
+:root {
+    --clr-very-dark-blue: #{$clr-very-dark-blue};
+    --clr-dark-desaturated-blue: #{$clr-dark-desaturated-blue};
+    --clr-soft-violet: #{$clr-soft-violet};
+    --clr-white: #{$clr-white};
+}
